@@ -1,5 +1,6 @@
 import json
 import os
+from datetime import datetime
 
 class TodoApp:
     def __init__(self, filename="tasks.json"):
@@ -34,10 +35,18 @@ class TodoApp:
             return
 
         print("\n📝 --- 할 일 목록 ---")
+        today = datetime.now().strftime("%Y-%m-%d")
+
         for idx, task in enumerate(self.tasks, 1):
             status = "[x]" if task['completed'] else "[ ]"
-            due_str = f" (마감: {task.get('due_date')})" if task.get('due_date') else ""
-            print(f"{idx}. {status} {task['title']}{due_str}")
+            due_date = task.get('due_date', "")
+            due_str = f" (마감: {due_date})" if due_date else ""
+            line = f"{idx}. {status} {task['title']}{due_str}"
+
+            if due_date and not task['completed'] and due_date < today:
+                print(f"\033[91m{line} (⚠️ 기한 지남)\033[0m")
+            else:
+                print(line)
         print("---------------------\n")
 
     def complete_task(self, index):
