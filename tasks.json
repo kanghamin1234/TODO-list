@@ -1,1 +1,12 @@
-[]
+[
+    {
+        "title": "파이썬 프로그램 만들기",
+        "completed": true,
+        "due_date": "2026-01-20"
+    },
+    {
+        "title": "운동",
+        "completed": true,
+        "due_date": "2026=01=20"
+    }
+]
