@@ -8,5 +8,15 @@
         "title": "운동",
         "completed": true,
         "due_date": "2026=01=20"
+    },
+    {
+        "title": "파이썬 개발",
+        "completed": true,
+        "due_date": "2026-01-20"
+    },
+    {
+        "title": "독서하기",
+        "completed": false,
+        "due_date": "2026-01-24"
     }
 ]
